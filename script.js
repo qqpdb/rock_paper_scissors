@@ -44,7 +44,7 @@ function playGame() {
             alert(`Draw!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${compScore}`);
         }
     }
-
+    
     if (compScore === 5) {
         alert('OMG YOU LOST TO A BOT');
     } else {
