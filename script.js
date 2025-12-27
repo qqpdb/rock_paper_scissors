@@ -23,9 +23,18 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    humanHand = prompt("Rock, Paper, or Scissors?", "");
+    let humanHand = prompt("Rock, Paper, or Scissors?", "");
     return humanHand;
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+function playRound(humanChoice, computerChoice) {
+    // makes the humanChoice case insensitive
+    humanChoice = humanChoice.charAt().toUpperCase() + humanChoice.toLowerCase().slice(1);
+    console.log(humanChoice);
+    console.log(computerChoice);
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
