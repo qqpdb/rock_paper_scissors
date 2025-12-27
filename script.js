@@ -1,7 +1,3 @@
-// declare score keeping variables
-let humanScore = 0;
-let compScore = 0;
-
 function getComputerChoice() {
     //create variable to store random number
     let roll;
@@ -27,45 +23,58 @@ function getHumanChoice() {
     return humanHand;
 }
 
-function playRound(humanChoice, computerChoice) {
-    // makes the humanChoice case insensitive
-    humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.toLowerCase().slice(1);
 
-    if (humanChoice === 'Rock' && computerChoice === 'Rock') {
-        return 'Draw';
-    } else if (humanChoice === 'Rock' && computerChoice === 'Paper') {
-        compScore++;
-        return 'Computer Wins!';
-    } else if (humanChoice === 'Rock' && computerChoice === 'Scissors') {
-        humanScore++;
-        return 'Human Wins!';
-    } else if (humanChoice === 'Paper' && computerChoice === 'Rock') {
-        humanScore++;
-        return 'Human Wins!';
-    } else if (humanChoice === 'Paper' && computerChoice === 'Paper') {
-        return 'Draw'
-    } else if (humanChoice === 'Paper' && computerChoice === 'Scissors') {
-        compScore++;
-        return 'Computer Wins!';
-    } else if (humanChoice === 'Scissors' && computerChoice === 'Rock') {
-        compScore++;
-        return 'Computer Wins!';
-    } else if (humanChoice === 'Scissors' && computerChoice === 'Paper') {
-        humanScore++;
-        return 'Human Wins!';
-    } else {
-        return 'Tie';
+
+function playGame() {
+
+    let compScore = 0;
+    let humanScore = 0;
+
+    while (compScore < 5 && humanScore < 5) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        const result = playRound(humanSelection, computerSelection);
+        if (result === 'Computer Wins!') {
+            compScore++;
+            alert(`You Lose!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${compScore}`);
+        } else if (result === 'Human Wins!') {
+            humanScore++;
+            alert(`You Win!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${compScore}`);
+        } else if (result === 'Draw') {
+            alert(`Draw!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${compScore}`);
+        }
     }
 
+    if (compScore === 5) {
+        alert('OMG YOU LOST TO A BOT');
+    } else {
+        alert('YOU WIN!!!!');
+    }
 
-
-    console.log(humanChoice);
-    console.log(computerChoice);
+    function playRound(humanChoice, computerChoice) {
+        // makes the humanChoice case insensitive
+        humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.toLowerCase().slice(1);
+        if (humanChoice === 'Rock' && computerChoice === 'Rock') {
+            return 'Draw';
+        } else if (humanChoice === 'Rock' && computerChoice === 'Paper') {
+            return 'Computer Wins!';
+        } else if (humanChoice === 'Rock' && computerChoice === 'Scissors') {
+            return 'Human Wins!';
+        } else if (humanChoice === 'Paper' && computerChoice === 'Rock') {
+            return 'Human Wins!';
+        } else if (humanChoice === 'Paper' && computerChoice === 'Paper') {
+            return 'Draw'
+        } else if (humanChoice === 'Paper' && computerChoice === 'Scissors') {
+            return 'Computer Wins!';
+        } else if (humanChoice === 'Scissors' && computerChoice === 'Rock') {
+            return 'Computer Wins!';
+        } else if (humanChoice === 'Scissors' && computerChoice === 'Paper') {
+            return 'Human Wins!';
+        } else {
+            return 'Draw';
+            //only other possible outcome is Scissors and Scissors
+        }
+    }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(playRound('Paper', 'Rock'));
-console.log(humanScore);
-console.log(compScore);
+playGame();
