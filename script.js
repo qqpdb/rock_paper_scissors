@@ -1,4 +1,3 @@
-
 function getComputerChoice() {
     //create variable to store random number
     let roll;
@@ -19,4 +18,10 @@ function getComputerChoice() {
     return compHand;
 }
 
+function getHumanChoice() {
+    humanHand = prompt("Rock, Paper, or Scissors?", "");
+    return humanHand;
+}
+
+console.log(getHumanChoice());
 console.log(getComputerChoice());
