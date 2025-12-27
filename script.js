@@ -29,7 +29,36 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     // makes the humanChoice case insensitive
-    humanChoice = humanChoice.charAt().toUpperCase() + humanChoice.toLowerCase().slice(1);
+    humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.toLowerCase().slice(1);
+
+    if (humanChoice === 'Rock' && computerChoice === 'Rock') {
+        return 'Draw';
+    } else if (humanChoice === 'Rock' && computerChoice === 'Paper') {
+        compScore++;
+        return 'Computer Wins!';
+    } else if (humanChoice === 'Rock' && computerChoice === 'Scissors') {
+        humanScore++;
+        return 'Human Wins!';
+    } else if (humanChoice === 'Paper' && computerChoice === 'Rock') {
+        humanScore++;
+        return 'Human Wins!';
+    } else if (humanChoice === 'Paper' && computerChoice === 'Paper') {
+        return 'Draw'
+    } else if (humanChoice === 'Paper' && computerChoice === 'Scissors') {
+        compScore++;
+        return 'Computer Wins!';
+    } else if (humanChoice === 'Scissors' && computerChoice === 'Rock') {
+        compScore++;
+        return 'Computer Wins!';
+    } else if (humanChoice === 'Scissors' && computerChoice === 'Paper') {
+        humanScore++;
+        return 'Human Wins!';
+    } else {
+        return 'Tie';
+    }
+
+
+
     console.log(humanChoice);
     console.log(computerChoice);
 }
@@ -37,4 +66,6 @@ function playRound(humanChoice, computerChoice) {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+console.log(playRound('Paper', 'Rock'));
+console.log(humanScore);
+console.log(compScore);
