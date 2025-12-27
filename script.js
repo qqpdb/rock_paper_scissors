@@ -1,3 +1,7 @@
+// declare score keeping variables
+let humanScore = 0;
+let compScore = 0;
+
 function getComputerChoice() {
     //create variable to store random number
     let roll;
