@@ -1,13 +1,11 @@
 function getComputerChoice() {
-    //create variable to store random number
+    // varaible to store random number into
     let roll;
-    //create variable to store string
     let computerHand;
     //generate random number and store it into variable
     roll = Math.random();
-    //if the number is less than or equal to .33, assign rock to string variable
-    //if the number is greater than or equal to .34, AND less than or equal to .66, assign paper to string variable
-    //if the number is greater than or equal to .67, assign scissors to string variable
+    // randomly selects rock, paper, or scissors, by splitting the output of
+    // Math.random() into threes: 0-33, 34-66, 67-100
     if (roll <= .33) {
         computerHand = "Rock";
     } else if (roll >= .34 && roll <= .66) {
@@ -18,18 +16,20 @@ function getComputerChoice() {
     return computerHand;
 }
 
+// prompts user for rock paper scissors and stores it
 function getHumanChoice() {
     let humanHand = prompt("Rock, Paper, or Scissors?", "");
     return humanHand;
 }
-
-
 
 function playGame() {
 
     let computerScore = 0;
     let humanScore = 0;
 
+    // this loop calls the playRound() function and continues until one of the
+    // score counters reaches 5, it also alerts the user of the score and
+    // whether they won the round
     while (computerScore < 5 && humanScore < 5) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
@@ -66,12 +66,14 @@ function playGame() {
         }
     }
     
+    // end of game alert
     if (computerScore === 5) {
         alert('OMG YOU LOST TO A BOT');
     } else {
         alert('YOU WIN!!!!');
     }
 
+    // logic for a single round of rock paper scissors, returns the winner
     function playRound(humanChoice, computerChoice) {
         // makes the humanChoice case insensitive
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.toLowerCase().slice(1);
