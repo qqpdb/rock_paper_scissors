@@ -2,20 +2,20 @@ function getComputerChoice() {
     //create variable to store random number
     let roll;
     //create variable to store string
-    let compHand;
+    let computerHand;
     //generate random number and store it into variable
     roll = Math.random();
     //if the number is less than or equal to .33, assign rock to string variable
     //if the number is greater than or equal to .34, AND less than or equal to .66, assign paper to string variable
     //if the number is greater than or equal to .67, assign scissors to string variable
     if (roll <= .33) {
-        compHand = "Rock";
+        computerHand = "Rock";
     } else if (roll >= .34 && roll <= .66) {
-        compHand = "Paper";
+        computerHand = "Paper";
     } else {
-        compHand = "Scissors";
+        computerHand = "Scissors";
     }
-    return compHand;
+    return computerHand;
 }
 
 function getHumanChoice() {
@@ -27,25 +27,25 @@ function getHumanChoice() {
 
 function playGame() {
 
-    let compScore = 0;
+    let computerScore = 0;
     let humanScore = 0;
 
-    while (compScore < 5 && humanScore < 5) {
+    while (computerScore < 5 && humanScore < 5) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         const result = playRound(humanSelection, computerSelection);
         if (result === 'Computer Wins!') {
-            compScore++;
-            alert(`You Lose!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${compScore}`);
+            computerScore++;
+            alert(`You Lose!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${computerScore}`);
         } else if (result === 'Human Wins!') {
             humanScore++;
-            alert(`You Win!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${compScore}`);
+            alert(`You Win!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${computerScore}`);
         } else if (result === 'Draw') {
-            alert(`Draw!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${compScore}`);
+            alert(`Draw!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${computerScore}`);
         }
     }
     
-    if (compScore === 5) {
+    if (computerScore === 5) {
         alert('OMG YOU LOST TO A BOT');
     } else {
         alert('YOU WIN!!!!');
