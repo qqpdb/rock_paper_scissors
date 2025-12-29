@@ -36,12 +36,33 @@ function playGame() {
         const result = playRound(humanSelection, computerSelection);
         if (result === 'Computer Wins!') {
             computerScore++;
-            alert(`You Lose!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${computerScore}`);
+            alert('You Lose!\nYou: ' +
+                    humanSelection +
+                    '\nCPU: ' +
+                    computerSelection +
+                    '\nScore: ' +
+                    humanScore +
+                    ' to ' +
+                    computerScore);
         } else if (result === 'Human Wins!') {
             humanScore++;
-            alert(`You Win!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${computerScore}`);
+            alert('You Win!\nYou: ' +
+                    humanSelection +
+                    '\nCPU: ' +
+                    computerSelection +
+                    '\nScore: ' +
+                    humanScore +
+                    ' to ' +
+                    computerScore);
         } else if (result === 'Draw') {
-            alert(`Draw!\nYou: ${humanSelection}\nCPU: ${computerSelection}\nScore: ${humanScore} to ${computerScore}`);
+            alert('Draw!\nYou: ' +
+                    humanSelection +
+                    '\nCPU: ' +
+                    computerSelection +
+                    '\nScore: ' +
+                    humanScore +
+                    ' to ' +
+                    computerScore);
         }
     }
     
